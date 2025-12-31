@@ -1,3 +1,37 @@
+# FreeTradingBots FastAPI + Supabase + Railway
+
+## Features
+- Upload and manage Deriv/Binary XML bots
+- Execute all bots in parallel via API
+- Supabase integration for future data storage (user data, bot runs, etc.)
+- Ready for Railway deployment (Dockerfile included)
+
+## Setup
+
+### 1. Environment Variables
+Set these in Railway (or locally in a .env file):
+- `SUPABASE_URL` = your Supabase project URL
+- `SUPABASE_KEY` = your Supabase service role key
+
+### 2. Deploy to Railway
+- Push this repo to GitHub
+- Create a new Railway project, link your repo
+- Set the environment variables above in Railway dashboard
+- Deploy (Railway will use the Dockerfile)
+
+### 3. Usage
+- Place your XML bots in the `bots/` directory
+- Start all bots: `POST /all-bots/run` (with app_id and token in body)
+- List bots: `GET /bots`
+- Download bot: `GET /bots/{name}`
+
+## Extending
+- Use `supabase_client.py` to interact with your Supabase database
+- Add endpoints or logic as needed for your use case
+
+---
+
+For help, contact your developer or see the Railway/Supabase docs.
 # freeTradingBots - Make sure to back test before using
 This is a repository for free bots that you can use to trade at your own discretion and earn millions.
 
